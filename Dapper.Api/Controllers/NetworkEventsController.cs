@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper.Proxy.Abstraction;
-using Dapper.Proxy.Models;
+using Dapper.Core.Abstraction;
+using Dapper.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -13,15 +13,18 @@ namespace Dapper.Api.Controllers
     public class NetworkEventsController : ControllerBase
     {
         private readonly ILogger<NetworkEventsController> _logger;
-        private readonly INetworkEventsService _repo;
+        private readonly INetworkEventsService _dapperCtx;
 
-        public NetworkEventsController(
-            ILogger<NetworkEventsController> logger,
-            INetworkEventsService repo)
+
+        public NetworkEventsController(ILogger<NetworkEventsController> logger, INetworkEventsService repo)
         {
             _logger = logger;
-            _repo = repo;
+            _dapperCtx = repo;
         }
+
+
+
+
 
         [HttpGet]
         public async Task<IEnumerable<NetworkEvent>> GetAllAsync()
@@ -29,7 +32,7 @@ namespace Dapper.Api.Controllers
             IEnumerable<NetworkEvent> res = new List<NetworkEvent>();
             try
             {
-                res = await _repo.GetAllEventsAsync();
+                res = await _dapperCtx.GetAllEventsAsync();
             }
             catch (Exception ex)
             {
@@ -46,7 +49,7 @@ namespace Dapper.Api.Controllers
             var res = new NetworkEvent();
             try
             {
-                res = await _repo.GetEventByIdAsync(id);
+                res = await _dapperCtx.GetEventByIdAsync(id);
             }
             catch (Exception ex)
             {

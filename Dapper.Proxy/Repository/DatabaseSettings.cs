@@ -1,4 +1,4 @@
-﻿namespace Dapper.Proxy.Repository
+﻿namespace Dapper.Core.Repository
 {
     public class DatabaseSettings
     {

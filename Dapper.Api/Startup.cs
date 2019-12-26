@@ -1,5 +1,6 @@
-using Dapper.Proxy.Abstraction;
-using Dapper.Proxy.Repository;
+using Dapper.Core.Abstraction;
+using Dapper.Core.Repository;
+using Dapper.Core.Repository.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
