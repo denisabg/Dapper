@@ -3,12 +3,12 @@
     public class NetworkEvent
     {
         public int Id { get; set; }
-        public int Event_Id { get; set; }
+        public int EventId { get; set; }
         
-        public string Switch_Ip { get; set; }
-        public int Port_Id { get; set; }
+        public string SwitchIp { get; set; }
+        public int PortId { get; set; }
         
-        public string Device_Mac { get; set; }
+        public string DeviceMac { get; set; }
 
         public string Remarks { get; set; }
     }

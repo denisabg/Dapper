@@ -39,7 +39,7 @@ namespace Dapper.Api
 
             services.AddOptions();
 
-            services.AddTransient<INetworkEventsRepository, NetworkEventsRepository>();
+            services.AddTransient<INetworkEventsService, NetworkEventsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +57,7 @@ namespace Dapper.Api
             app.UseAuthorization();
 
             app.ApplicationServices.
-                GetService<INetworkEventsRepository>();
+                GetService<INetworkEventsService>();
 
             app.UseMvc(routes =>
             {

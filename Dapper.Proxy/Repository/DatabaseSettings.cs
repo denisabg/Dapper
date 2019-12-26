@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Dapper.Proxy.Repository
+﻿namespace Dapper.Proxy.Repository
 {
     public class DatabaseSettings
     {
