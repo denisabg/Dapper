@@ -13,11 +13,11 @@ namespace Dapper.Api.Controllers
     public class NetworkEventsController : ControllerBase
     {
         private readonly ILogger<NetworkEventsController> _logger;
-        private readonly INetworkEventsRepository _repo;
+        private readonly INetworkEventsService _repo;
 
         public NetworkEventsController(
             ILogger<NetworkEventsController> logger,
-            INetworkEventsRepository repo)
+            INetworkEventsService repo)
         {
             _logger = logger;
             _repo = repo;
