@@ -2,11 +2,11 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Dapper.Proxy.Abstraction;
-using Dapper.Proxy.Models;
+using Dapper.Core.Abstraction;
+using Dapper.Core.Models;
 using Microsoft.Extensions.Options;
 
-namespace Dapper.Proxy.Repository
+namespace Dapper.Core.Repository.Services
 {
     public class NetworkEventsService : INetworkEventsService
     {
