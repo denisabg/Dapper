@@ -1,5 +1,7 @@
 ﻿//using System.ComponentModel.DataAnnotations.Schema;
 
+using System.Diagnostics.CodeAnalysis;
+
 namespace Dapper.Core.Models
 {
     //[Table("NetworkEvents")]
@@ -21,8 +23,10 @@ namespace Dapper.Core.Models
 
 
 
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class NetworkEvent
     {
+        // ReSharper disable once UnusedAutoPropertyAccessor.Global
         public int Id { get; set; }
         public int Event_Id { get; set; }
         public string Switch_Ip { get; set; }
