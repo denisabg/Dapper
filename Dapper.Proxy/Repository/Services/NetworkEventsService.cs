@@ -2,11 +2,11 @@
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using Dapper.Proxy.Abstraction;
-using Dapper.Proxy.Models;
+using Dapper.Core.Abstraction;
+using Dapper.Core.Models;
 using Microsoft.Extensions.Options;
 
-namespace Dapper.Proxy.Repository
+namespace Dapper.Core.Repository.Services
 {
     public class NetworkEventsService : INetworkEventsService
     {
@@ -15,15 +15,14 @@ namespace Dapper.Proxy.Repository
 
         public NetworkEventsService(string connectionString)
         {
-            this._connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         public NetworkEventsService(IOptions<DatabaseSettings> dbOptions)
         {
-            this.DbSettings = dbOptions.Value;
-            this._connectionString = this.DbSettings.ConnectionString;
+            DbSettings = dbOptions.Value;
+            _connectionString = DbSettings.ConnectionString;
         }
-
 
 
         public async Task<IEnumerable<NetworkEvent>> GetAllEventsAsync()
@@ -46,7 +45,7 @@ namespace Dapper.Proxy.Repository
                 await connection
                     .QueryAsync<NetworkEvent>(
                         "SELECT * FROM NetworkEvents Where Id=@Id",
-                        new { Id = id });
+                        new {Id = id});
 
             return
                 result

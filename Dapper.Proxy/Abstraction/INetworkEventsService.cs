@@ -1,14 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Dapper.Proxy.Models;
+using Dapper.Core.Models;
 
-namespace Dapper.Proxy.Abstraction
+namespace Dapper.Core.Abstraction
 {
     public interface INetworkEventsService
     {
         Task<IEnumerable<NetworkEvent>> GetAllEventsAsync();
         Task<NetworkEvent> GetEventByIdAsync(int id);
-
-
     }
 }
