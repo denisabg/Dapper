@@ -8,7 +8,5 @@ namespace Dapper.Core.Abstraction
     {
         Task<IEnumerable<NetworkEvent>> GetAllEventsAsync();
         Task<NetworkEvent> GetEventByIdAsync(int id);
-
-
     }
 }

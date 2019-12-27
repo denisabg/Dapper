@@ -15,15 +15,14 @@ namespace Dapper.EF.Core
 
         public NetworkEventsContext(IOptions<DatabaseSettings> dbOptions)
         {
-            this.DbSettings = dbOptions.Value;
-            this._connectionString = this.DbSettings.ConnectionString;
+            DbSettings = dbOptions.Value;
+            _connectionString = DbSettings.ConnectionString;
         }
 
         public NetworkEventsContext(string connectionString)
         {
-            this._connectionString = connectionString;
+            _connectionString = connectionString;
         }
-
 
 
         public DbSet<NetworkEvent> NetworkEvents { get; set; }
@@ -34,16 +33,14 @@ namespace Dapper.EF.Core
         }
 
 
-
-
         public async Task<IEnumerable<NetworkEvent>> GetAllEventsAsync()
         {
-            return await this.NetworkEvents.ToListAsync();
+            return await NetworkEvents.ToListAsync();
         }
 
         public async Task<NetworkEvent> GetEventByIdAsync(int id)
         {
-            return await this.NetworkEvents.SingleAsync(x => x.Id == id);
+            return await NetworkEvents.SingleAsync(x => x.Id == id);
         }
     }
 }

@@ -22,7 +22,6 @@ namespace Dapper.Core.Models
     //}
 
 
-
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class NetworkEvent
     {
@@ -34,7 +33,4 @@ namespace Dapper.Core.Models
         public string Device_Mac { get; set; }
         public string Remarks { get; set; }
     }
-
-
-
 }

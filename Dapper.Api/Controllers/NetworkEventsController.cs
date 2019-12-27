@@ -23,9 +23,6 @@ namespace Dapper.Api.Controllers
         }
 
 
-
-
-
         [HttpGet]
         public async Task<IEnumerable<NetworkEvent>> GetAllAsync()
         {
@@ -38,9 +35,9 @@ namespace Dapper.Api.Controllers
             {
                 _logger.LogError(ex, ex.Message);
             }
+
             return res;
         }
-
 
 
         [HttpGet("{id}")]
@@ -55,6 +52,7 @@ namespace Dapper.Api.Controllers
             {
                 _logger.LogError(ex, ex.Message);
             }
+
             return res;
         }
     }

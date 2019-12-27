@@ -15,15 +15,14 @@ namespace Dapper.Core.Repository.Services
 
         public NetworkEventsService(string connectionString)
         {
-            this._connectionString = connectionString;
+            _connectionString = connectionString;
         }
 
         public NetworkEventsService(IOptions<DatabaseSettings> dbOptions)
         {
-            this.DbSettings = dbOptions.Value;
-            this._connectionString = this.DbSettings.ConnectionString;
+            DbSettings = dbOptions.Value;
+            _connectionString = DbSettings.ConnectionString;
         }
-
 
 
         public async Task<IEnumerable<NetworkEvent>> GetAllEventsAsync()
@@ -46,7 +45,7 @@ namespace Dapper.Core.Repository.Services
                 await connection
                     .QueryAsync<NetworkEvent>(
                         "SELECT * FROM NetworkEvents Where Id=@Id",
-                        new { Id = id });
+                        new {Id = id});
 
             return
                 result

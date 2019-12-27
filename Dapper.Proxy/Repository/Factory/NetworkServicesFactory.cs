@@ -2,7 +2,6 @@
 {
     public static class NetworkServicesFactory
     {
-
         //public static INetworkEventsService UseDapper()
         //{
         //    return new NetworkEventsService();
